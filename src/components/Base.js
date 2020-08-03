@@ -17,6 +17,17 @@ const continerVarient = {
     },
   },
 };
+const buttonVarient = {
+  hover: {
+    scale: 1.1,
+    textShadow: '0px 0px 8px rgba(255,255,255)',
+    boxShadow: '0px 0px 8px rgba(255,255,255)',
+    transition: {
+      duration: 0.3,
+      yoyo: Infinity,
+    },
+  },
+};
 
 const nextVarient = {
   hidden: {
@@ -59,19 +70,13 @@ const Base = ({ addBase, pizza }) => {
 
       {pizza.base && (
         <motion.div
-        variants={nextVarient}
+          variants={nextVarient}
           className="next"
           initial="hidden"
           animate="visible"
         >
           <Link to="/toppings">
-            <motion.button
-              whileHover={{
-                scale: 1.1,
-                textShadow: '0px 0px 8px rgba(255,255,255)',
-                boxShadow: '0px 0px 8px rgba(255,255,255)',
-              }}
-            >
+            <motion.button variants={buttonVarient} whileHover="hover">
               Next
             </motion.button>
           </Link>
