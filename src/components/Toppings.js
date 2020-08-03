@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import {motion} from 'framer-motion'
 const Toppings = ({ addTopping, pizza }) => {
   let toppings = ['mushrooms', 'peppers', 'onions', 'olives', 'extra cheese', 'tomatoes'];
 
@@ -12,9 +12,10 @@ const Toppings = ({ addTopping, pizza }) => {
         {toppings.map(topping => {
           let spanClass = pizza.toppings.includes(topping) ? 'active' : '';
           return (
-            <li key={topping} onClick={() => addTopping(topping)}>
+            <motion.li key={topping} onClick={() => addTopping(topping)}
+            whileHover={{scale:1.3, color:'yellow',originX:0}}>
               <span className={spanClass}>{ topping }</span>
-            </li>
+            </motion.li>
           )
         })}
       </ul>
